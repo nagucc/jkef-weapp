@@ -1,0 +1,37 @@
+<!--
+用于显示受赠记录列表的模板。
+参数：
+- records: 数组，已经格式化好，用于显示的受赠记录数据列表。每条记录包含的字段包括：
+  - _id 受赠记录id
+  - year 年份
+  - project 项目
+  - amountText 用于显示的格式化金额文本
+-->
+<template name="record-list-view">
+  <view wx:if="{{records.length > 0}}">
+    <view class="weui-cells__title">奖赠记录</view>
+    
+    <view class="weui-form-preview" wx:for="{{records}}" wx:key="{{item._id}}" >
+            <view class="weui-form-preview__hd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">{{item.project}}</view>
+                    <view class="weui-form-preview__value_in-hd">{{item.amountText}}</view>
+                </view>
+            </view>
+            <view class="weui-form-preview__bd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">日期</view>
+                    <view class="weui-form-preview__value">{{item.dateText}}</view>
+                </view>
+                <view class="weui-form-preview__item" wx:if="{{item.recommander}}" >
+                    <view class="weui-form-preview__label">推荐人</view>
+                    <view class="weui-form-preview__value">{{item.recommander}}</view>
+                </view>
+                <view class="weui-form-preview__item" wx:if="{{item.remark}}" >
+                    <view class="weui-form-preview__label">备注</view>
+                    <view class="weui-form-preview__value">{{item.remark}}</view>
+                </view>
+            </view>
+        </view>
+  </view>
+</template>

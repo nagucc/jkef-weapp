@@ -1,0 +1,4 @@
+/* detail.wxss */
+.weui-cells {
+  margin-bottom: 25px;
+}

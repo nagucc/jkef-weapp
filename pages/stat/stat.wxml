@@ -1,0 +1,70 @@
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">家琨教育基金历年捐赠统计</view>
+        <view class="page__desc">家琨教育基金成立于2006年。</view>
+    </view>
+    <view class="page__bd">
+      <view class="weui-panel weui-panel_access">
+        <view wx:if="{{events.length}}">
+          <view class="weui-panel__hd">活动</view>
+          <view class="weui-panel__bd">
+            <navigator wx:for="{{events}}" wx:key="{{item.id}}" url="{{item.url}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+              <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                <text class="{{item.faClass}}"></text>
+              </view>
+              <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                  <view class="weui-media-box__title">{{item.title}}</view>
+                  <view class="weui-media-box__desc">{{item.desc}}</view>
+              </view>
+            </navigator>
+          </view>
+        </view>
+      </view>
+        <view class="weui-form-preview">
+            <view class="weui-form-preview__hd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">按项目统计</view>
+                    <view class="weui-form-preview__value_in-hd">共{{statByProject.length}}个项目</view>
+                </view>
+            </view>
+            <view class="weui-form-preview__bd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">截止到</view>
+                    <view class="weui-form-preview__value">{{latestUpdate}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">合计</view>
+                    <view class="weui-form-preview__value">{{total.amount}} | {{total.count}} 人次</view>
+                </view>
+                <view wx:for="{{statByProject}}" wx:key="{{item._id}}">
+                    <view class="weui-form-preview__label">{{item._id}}</view>
+                    <view class="weui-form-preview__value">{{item.value.amount}} | {{item.value.count}} 人次</view>
+                </view>
+                
+            </view>
+        </view>
+        <view class="weui-form-preview">
+            <view class="weui-form-preview__hd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">按年统计</view>
+                    <view class="weui-form-preview__value_in-hd">共{{statByYear.length}}年</view>
+                </view>
+            </view>
+            <view class="weui-form-preview__bd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">截止到</view>
+                    <view class="weui-form-preview__value">{{latestUpdate}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">合计</view>
+                    <view class="weui-form-preview__value">{{total.amount}} | {{total.count}} 人次</view>
+                </view>
+                <view wx:for="{{statByYear}}" wx:key="{{item._id}}">
+                    <view class="weui-form-preview__label">{{item._id}}年</view>
+                    <view class="weui-form-preview__value">{{item.value.amount}} | {{item.value.count}} 人次</view>
+                </view>
+            </view>
+        </view>
+        <include src="../footer.wxml" />
+    </view>
+</view>

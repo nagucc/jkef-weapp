@@ -1,0 +1,11 @@
+.weui-form-preview{
+    margin-bottom: 25px;
+}
+
+.br {
+  margin-bottom: 25px;
+}
+
+.weui-panel {
+  margin-bottom: 25px;
+}

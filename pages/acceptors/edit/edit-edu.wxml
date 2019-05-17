@@ -1,0 +1,74 @@
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title">编辑【{{acceptor.name}}】的教育经历</view>
+    <view class="page__desc">
+    </view>
+  </view>
+  <view class="page__bd">
+
+    <import src="../edu-history-view.wxml" />
+    <template is="edu-history-view" data="{{ eduHistory }}"></template>
+
+
+    <form bindsubmit="submitAdd">
+      <view class="weui-cells__title">添加教育经历</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_select">
+          <view class="weui-cell__hd weui-cell__hd_in-select-after">
+            <view class="weui-label">学历</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker id="selectedDegreeIndex" bindchange="bindAddFormFieldChange" value="{{addFormData.selectedDegreeIndex}}" range="{{degrees}}" name="degreeIndex">
+              <view class="weui-select weui-select_in-select-after">{{degrees[addFormData.selectedDegreeIndex]}}</view>
+            </picker>
+          </view>
+        </view>
+
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">入学年份</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input id="year" bindchange="bindAddFormFieldChange" class="weui-input" value="{{addFormData.year}}" type="number" name="year" maxlength="4" placeholder="请输入入学年份" />
+          </view>
+        </view>
+
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">就读学校</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input id="name" bindchange="bindAddFormFieldChange" class="weui-input" value="{{addFormData.name}}" name="name" placeholder="请填写学校名称" />
+          </view>
+        </view>
+
+      </view>
+
+      <view class="weui-btn-area">
+        <button class="weui-btn" type="primary" form-type="submit">确定</button>
+      </view>
+    </form>
+
+    <form bindsubmit="submitDelete">
+      <view class="weui-cells__title">删除教育经历</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_select">
+          <view class="weui-cell__hd weui-cell__hd_in-select-after">
+            <view class="weui-label">选择</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker bindchange="bindRecordForDeleteChange" value="{{selectedRecordIndex}}" range="{{recordsForDelete}}" range-key="text" name="recordForDelete">
+              <view class="weui-select weui-select_in-select-after">{{recordsForDelete[selectedRecordIndex].text}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+
+      <view class="weui-btn-area">
+        <button disabled="{{!selectedRecordIndex}}" class="weui-btn" type="warn" form-type="submit">删除</button>
+      </view>
+    </form>
+
+    <include src="../../footer.wxml" />
+  </view>
+</view>

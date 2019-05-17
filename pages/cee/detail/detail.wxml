@@ -1,0 +1,44 @@
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">我的录取登记情况</view>
+        <view class="page__desc"></view>
+    </view>
+    <view class="page__bd">
+        <view class="weui-form-preview">
+            <view class="weui-form-preview__hd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">考生姓名</view>
+                    <view class="weui-form-preview__value_in-hd">{{ceeInfo.name}}</view>
+                </view>
+            </view>
+            <view class="weui-form-preview__bd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">录取学校 | 专业</view>
+                    <view class="weui-form-preview__value">{{ceeInfo.toSchool}} | {{ceeInfo.subject}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">家长姓名 | 家庭地址</view>
+                    <view class="weui-form-preview__value">{{ceeInfo.parentName}} | {{ceeInfo.homeAddress}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">联系电话</view>
+                    <view class="weui-form-preview__value">{{ceeInfo.phone}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">毕业学校 | 考试类型</view>
+                    <view class="weui-form-preview__value">{{ceeInfo.fromSchool}} | {{ceeInfo.examTypeText}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">考试分数</view>
+                    <view class="weui-form-preview__value">{{ceeInfo.point}}</view>
+                </view>
+            </view>
+            <view class="weui-form-preview__ft">
+              <navigator url="/pages/cee/registration/registration" class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active" >修改</navigator>
+              <button class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" bindtap="removeCeeInfo">删除</button>
+            </view>
+        </view>
+
+        <include src="../footer.wxml" />
+    </view>
+</view>

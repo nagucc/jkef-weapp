@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/stat/stat",
+    "pages/acceptors/list/list",
+    
+    "pages/acceptors/edit/edit-career",
+    "pages/acceptors/detail/detail",
+    "pages/acceptors/edit-record/edit-record",
+    "pages/acceptors/edit/edit",
+    "pages/user/profile/profile",
+    "pages/cee/list/list",
+    "pages/cee/registration/registration",
+    "pages/cee/detail/detail",
+    "pages/acceptors/edit/edit-edu",
+    "pages/user/edit/edit"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "家琨教育基金",
+    "navigationBarBackgroundColor": "#f8f8f8",
+    "backgroundColor": "#f8f8f8",
+    "enablePullDownRefresh": true
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/stat/stat",
+        "text": "首页",
+        "iconPath": "images/home_aaaaaa.png",
+        "selectedIconPath": "images/home_1aad16.png"
+      },
+      {
+        "pagePath": "pages/user/profile/profile",
+        "text": "我",
+        "iconPath": "images/user_aaaaaa.png",
+        "selectedIconPath": "images/user_1aad16.png"
+      }
+    ]
+  },
+  "debug": false,
+  "sitemapLocation": "sitemap.json"
+}

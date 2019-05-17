@@ -1,0 +1,40 @@
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">升学录取情况登记列表(共{{list.length}}人)</view>
+        <view class="page__desc"></view>
+    </view>
+    <view class="page__bd">
+        <view wx:for="{{list}}" class="weui-form-preview">
+            <view class="weui-form-preview__hd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">考生姓名</view>
+                    <view class="weui-form-preview__value_in-hd">{{item.name}}</view>
+                </view>
+            </view>
+            <view class="weui-form-preview__bd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">录取学校 | 专业</view>
+                    <view class="weui-form-preview__value">{{item.toSchool}} | {{item.subject}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">家长姓名 | 家庭地址</view>
+                    <view class="weui-form-preview__value">{{item.parentName}} | {{item.homeAddress}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">联系电话</view>
+                    <view class="weui-form-preview__value">{{item.phone}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">毕业学校 | 考试类型</view>
+                    <view class="weui-form-preview__value">{{item.fromSchool}} | {{item.examTypeText}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">考试分数</view>
+                    <view class="weui-form-preview__value">{{item.point}}</view>
+                </view>
+            </view>
+        </view>
+        
+        <include src="../footer.wxml" />
+    </view>
+</view>

@@ -1,0 +1,20 @@
+<!--
+用于显示工作经历列表的模板。
+参数：
+- careerHistory: 数组，已经格式化好，用于显示的受赠记录数据列表。每条记录包含的字段包括：
+  - year 年份
+  - name 学校名称
+-->
+<template name="career-history-view">
+  <view wx:if="{{careerHistory.length}}">
+    <view class="weui-cells__title">工作经历</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell" wx:for="{{careerHistory}}" wx:key="*this">
+        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+          <view class="weui-label">{{item.year}}年</view>
+        </view>
+        <view class="weui-cell__bd">{{item.name}}</view>
+      </view>
+    </view>
+  </view>
+</template>

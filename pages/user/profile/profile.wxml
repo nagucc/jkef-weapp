@@ -1,0 +1,57 @@
+<view class="page">
+  <view class="userinfo">
+    <view class="userinfo">
+      <image wx:if="{{userInfo.avatarUrl}}" class="userinfo-avatar" src="{{userInfo.avatarUrl || '/images/user_1aad16.png'}}" background-size="cover"></image>
+      
+      <text wx:if="{{userInfo.nickName}}" class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <button wx:else type="primary" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">登录</button>
+    </view>
+  </view>
+
+  <view class="page__bd">
+    <view wx:if="{{ceeInfo}}">
+      <view class="weui-cells__title">我的信息</view>
+      <view class="weui-cells weui-cells_after-title">
+        <navigator url="/pages/cee/detail/detail" class="weui-cell weui-cell_access" hover-class="weui-cell_active" wx:if="{{ceeInfo}}">
+          <view class="weui-cell__hd">
+            <text class="fa fa-gift"></text>
+          </view>
+          <view class="weui-cell__bd">录取信息登记</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access">已登记</view>
+        </navigator>
+      </view>
+    </view>
+
+
+
+    <view wx:if="{{isManager}}">
+      <view class="weui-cells__title">管理员面板</view>
+      <view class="weui-cells weui-cells_after-title">
+        <navigator url="/pages/acceptors/list/list" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+          <view class="weui-cell__hd">
+            <text class="fa fa-list"></text>
+          </view>
+          <view class="weui-cell__bd">受赠者列表</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
+        <navigator url="/pages/cee/list/list" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+          <view class="weui-cell__hd">
+            <text class="fa fa-list"></text>
+          </view>
+          <view class="weui-cell__bd">录取信息列表</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
+        <navigator url="/pages/acceptors/edit/edit" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+          <view class="weui-cell__hd">
+            <text class="fa fa-user-plus"></text>
+          </view>
+          <view class="weui-cell__bd">新增受赠者</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
+      </view>
+    </view>
+
+
+    <include src="../../footer.wxml" />
+  </view>
+</view>

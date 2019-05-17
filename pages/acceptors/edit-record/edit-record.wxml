@@ -1,0 +1,93 @@
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title">编辑【{{acceptor.name}}】的受赠记录</view>
+    <view class="page__desc">
+    </view>
+  </view>
+  <view class="page__bd">
+
+    <import src="../record-list-view.wxml" />
+    <template is="record-list-view" data="{{ records }}"></template>
+
+
+    <form bindsubmit="submitAdd">
+      <view class="weui-cells__title">添加受赠记录</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_select">
+          <view class="weui-cell__hd weui-cell__hd_in-select-after">
+            <view class="weui-label">项目</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker id="selectedProjectIndex" bindchange="bindAddFormFieldChange" value="{{addFormData.selectedProjectIndex}}" range="{{projects}}" name="projectIndex">
+              <view class="weui-select weui-select_in-select-after">{{projects[addFormData.selectedProjectIndex]}}</view>
+            </picker>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_select">
+          <view class="weui-cell__hd weui-cell__hd_in-select-after">
+            <view class="weui-label">受赠日期</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker mode="date" id="selectedDate" bindchange="bindAddFormFieldChange" value="{{addFormData.selectedDate}}" start="2006-01-01" end="{{dateEnd}}" name="date">
+              <view class="weui-select weui-select_in-select-after">{{addFormData.selectedDate}}</view>
+            </picker>
+          </view>
+        </view>
+
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">金额</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input id="amount" bindchange="bindAddFormFieldChange" class="weui-input" value="{{addFormData.amount}}" type="digit" name="amount" maxlength="8" placeholder="请输入金额" />
+          </view>
+        </view>
+
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">推荐人</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input id="recommander" bindchange="bindAddFormFieldChange" class="weui-input" value="{{addFormData.recommander}}" name="recommander" placeholder="请填写推荐人" />
+          </view>
+        </view>
+
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">备注</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input id="remark" bindchange="bindAddFormFieldChange" class="weui-input" value="{{addFormData.remark}}" name="remark" placeholder="请填写备注" />
+          </view>
+        </view>
+
+      </view>
+
+      <view class="weui-btn-area">
+        <button class="weui-btn" type="primary" form-type="submit">确定</button>
+      </view>
+    </form>
+
+    <form bindsubmit="submitDelete">
+      <view class="weui-cells__title">删除受赠记录</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_select">
+          <view class="weui-cell__hd weui-cell__hd_in-select-after">
+            <view class="weui-label">选择记录</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker bindchange="bindRecordForDeleteChange" value="{{selectedRecordIndex}}" range="{{recordsForDelete}}" range-key="text" name="recordForDelete">
+              <view class="weui-select weui-select_in-select-after">{{recordsForDelete[selectedRecordIndex].text}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+
+      <view class="weui-btn-area">
+        <button disabled="{{!selectedRecordIndex}}" class="weui-btn" type="warn" form-type="submit">删除</button>
+      </view>
+    </form>
+
+    <include src="../../footer.wxml" />
+  </view>
+</view>
