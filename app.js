@@ -8,7 +8,6 @@ App({
     },
     getUserInfo: function() {
       if (this.globalData.userInfo) {
-        console.log('userInfo from app:', this.globalData.userInfo);
         return Promise.resolve(this.globalData.userInfo);
       }
       return new Promise((resolve, reject) => {

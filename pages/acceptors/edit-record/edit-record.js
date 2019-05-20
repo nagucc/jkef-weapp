@@ -88,8 +88,6 @@ Page({
   },
 
   submitAdd(e) {
-    console.log(e.detail.value);
-
     // 准备数据
     const { projectIndex, date, amount, recommander, remark } = e.detail.value;
 
