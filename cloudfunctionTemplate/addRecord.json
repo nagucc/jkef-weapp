@@ -1,0 +1,12 @@
+[
+  {
+    "name": "addRecord",
+    "value": {
+      "id": "55a3877b517c54741035b87d",
+      "record": {
+        "date": "2018-02-02",
+        "amount": 1000
+      }
+    }
+  }
+]
